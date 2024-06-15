@@ -23,7 +23,7 @@ namespace Calculate
         char arithmetic;
         bool nextOperation = true;
 
-        private void button_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             var inputNumber = ((Button)sender).Text;
 
@@ -38,7 +38,7 @@ namespace Calculate
             nextOperation = false;
         }
 
-        private void arithmetic_Click(object sender, EventArgs e)
+        private void Arithmetic_Click(object sender, EventArgs e)
         {
             textBox2.Text = textBox1.Text + ((Button)sender).Text;
             firstNumber = int.Parse(textBox1.Text);
@@ -46,7 +46,7 @@ namespace Calculate
             arithmetic = char.Parse(((Button)sender).Text);
         }
 
-        private void equal_Click(object sender, EventArgs e)
+        private void Equal_Click(object sender, EventArgs e)
         {
             double secondNumber = double.Parse(textBox1.Text);
             textBox2.Text += textBox1.Text;
@@ -66,5 +66,16 @@ namespace Calculate
             }
         }
 
+        private void Back_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            if (textBox1.Text.Length == 0)
+                textBox1.Text = "0";
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
     }
 }
